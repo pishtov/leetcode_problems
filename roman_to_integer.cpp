@@ -43,6 +43,7 @@ It is guaranteed that s is a valid roman numeral in the range [1, 3999]. */
 class Solution {
 public:
     int romanToInt(string s) {
+        // Helper func: convert one Roman char to its number
         auto value = [](char c) {
             if (c == 'I') return 1;
             if (c == 'V') return 5;
@@ -50,21 +51,26 @@ public:
             if (c == 'L') return 50;
             if (c == 'C') return 100;
             if (c == 'D') return 500;
-            return 1000; // M
+            return 1000; // M (if it's not the above, it must me M)
         };
-
+        
+        // This will store the final number
         int result = 0;
-
+        
+        // Go through every char in the string
         for (int i = 0; i < s.size(); i++) {
+            // Get value of current Roman char
             int current = value(s[i]);
 
+            // If current value is smaller than the next one, subtract it. (Ex. IV means -1 + 5)
             if (i + 1 < s.size() && current < value(s[i + 1])) {
                 result -= current;
             } else {
+                // Otherwise add it
                 result += current;
             }
         }
-
+        // Return final int value
         return result;
     }
 };
