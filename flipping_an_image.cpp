@@ -1,4 +1,4 @@
-Given an n x n binary matrix image, flip the image horizontally, then invert it, and return the resulting image.
+/* Given an n x n binary matrix image, flip the image horizontally, then invert it, and return the resulting image.
 
 To flip an image horizontally means that each row of the image is reversed.
 
@@ -27,7 +27,7 @@ Constraints:
 n == image.length
 n == image[i].length
 1 <= n <= 20
-images[i][j] is either 0 or 1.
+images[i][j] is either 0 or 1. */
 
 class Solution {
 public:
