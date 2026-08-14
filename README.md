@@ -26,6 +26,3 @@ Disclaimer
 
 These are personal solutions written for learning and practice. They are not intended to be the only or necessarily optimal solutions to the problems.
 
-LeetCode
-Problems are sourced from LeetCode.
----
