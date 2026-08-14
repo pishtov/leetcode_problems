@@ -37,9 +37,7 @@ public:
 
             // Flip row i
             for (int j = 0; j < image[i].size() / 2; j++) {
-                swap(
-                    image[i][j],
-                    image[i][image[i].size() - 1 - j]
+                swap(image[i][j], image[i][image[i].size() - 1 - j]
                 );
             }
 
