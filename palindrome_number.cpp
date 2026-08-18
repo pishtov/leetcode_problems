@@ -24,3 +24,22 @@ Constraints:
 Follow up: Could you solve it without converting the integer to a string?
 */
 
+class Solution {
+public:
+    bool isPalindrome(int x) {
+
+        if (x < 0) {
+            return false;
+        }
+        
+        int original = x;
+        int new_number = 0;
+
+        while (x > 0) {
+            int digit = x % 10;
+            new_number = new_number * 10 + digit;
+            x = x / 10;
+        }
+        return original == new_number;
+    }
+};
