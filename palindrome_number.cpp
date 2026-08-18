@@ -33,7 +33,7 @@ public:
         }
         
         int original = x;
-        int new_number = 0;
+        long int new_number = 0;
 
         while (x > 0) {
             int digit = x % 10;
