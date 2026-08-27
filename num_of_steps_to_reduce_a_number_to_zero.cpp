@@ -43,3 +43,19 @@ while (num != 0){
 return steps;
     }
 };
+
+/* Number of Steps to Reduce a Number to Zero — Approach
+The approach is to simply follow the rules given by the problem until the number becomes 0.
+We keep the current number in num and count how many operations we perform.
+For every step, we check whether the number is even or odd.
+If it is even, we divide it by 2.
+If it is odd, we subtract 1.
+After performing the operation, we increase steps by 1.
+We repeat this until num becomes 0.
+For example, with 14:
+14 → 7 → 6 → 3 → 2 → 1 → 0
+Each arrow represents one step, so the answer is 6.
+The important part is that we don't need to calculate anything in advance. We just simulate exactly what the problem tells us to do.
+The while (num != 0) loop makes sure we keep going until we reach 0.
+Time: O(log n), because dividing an even number by 2 quickly makes the number smaller. The odd numbers only require a subtraction before the next division.
+Space: O(1), because we only use the num and steps variables. */
