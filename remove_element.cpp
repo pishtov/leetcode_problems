@@ -62,3 +62,25 @@ public:
         return write;
     }
 };
+
+/* Remove Element — Approach
+The approach is to go through the array and keep only the elements that are not equal to val.
+We use two positions:
+read looks through every element in the array.
+write keeps track of where the next valid element should be placed.
+When read finds an element that is not val, we copy it to the write position and move write forward.
+For example:
+nums = [3,2,2,3], val = 3
+We look at 3 → ignore it.
+We look at 2 → keep it at the beginning:
+[2,2,2,3]
+We look at the next 2 → keep it:
+[2,2,2,3]
+We look at 3 → ignore it.
+At the end, write is 2, meaning the first 2 elements are the ones we want:
+[2,2,_,_]
+We don't actually need to remove anything from the array or change its size. We simply overwrite the beginning of the array with the elements we want to keep.
+The important idea is that read searches through the array, while write builds the new valid part of the array.
+The value of write is also the answer because it tells us how many elements were not equal to val.
+Time: O(n), because we go through the array once.
+Space: O(1), because we modify the original array and don't create another array. */
