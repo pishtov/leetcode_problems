@@ -53,3 +53,19 @@ public:
         return image;
     }
 };
+
+/* Flip and Invert Image — Approach
+The approach is to process the image one row at a time.
+For each row, we need to do two things:
+First, reverse the row. For example:
+[1, 1, 0] → [0, 1, 1]
+We do this by swapping the first element with the last element, the second with the second-to-last, and so on. We only need to go through half of the row because every swap handles two elements.
+After reversing the row, we invert it. This means changing every 0 into a 1 and every 1 into a 0.
+For example:
+[0, 1, 1] → [1, 0, 0]
+The code repeats these two steps for every row and modifies the original image directly.
+So the overall approach is simply:
+Go through each row → reverse it → invert every value → move to the next row.
+There is no complicated algorithm needed because the problem directly tells us the two operations we need to perform.
+Time: O(n²), because we potentially look at every element in the matrix.
+Space: O(1) extra space, because we modify the existing image instead of creating another matrix. */
