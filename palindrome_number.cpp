@@ -43,3 +43,23 @@ public:
         return original == new_number;
     }
 };
+
+/* Palindrome Number — Approach
+The approach is to reverse the number and then compare it with the original number.
+First, we save the original number because we are going to change x while reversing it.
+If x is negative, we immediately return false. A negative number cannot be a palindrome because of the - sign.
+To reverse the number, we repeatedly take its last digit using % 10.
+For example, with 123:
+123 → take 3
+12 → take 2
+1 → take 1
+We then build the reversed number:
+3 → 32 → 321
+Once we have the reversed number, we compare it with the original.
+If they are the same, the number reads the same forwards and backwards, so it is a palindrome.
+For example:
+121 → reversed is 121 → true
+123 → reversed is 321 → false
+The important idea is that we don't need to convert the number to a string. We can reverse the number mathematically by repeatedly taking its last digit and removing that digit.
+Time: O(log n), because we process each digit of the number once.
+Space: O(1), because we only use a few variables. */
