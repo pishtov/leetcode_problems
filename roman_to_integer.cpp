@@ -74,3 +74,32 @@ public:
         return result;
     }
 };
+
+/* Roman to Integer — Approach
+The approach is to go through the Roman numeral from left to right and add the value of each symbol.
+The only special case is when a smaller value comes before a larger value. In that situation, we subtract the smaller value instead of adding it.
+For example:
+VI → 5 + 1 = 6
+But:
+IV → -1 + 5 = 4
+So for every character, we look at the character immediately after it.
+If the current value is smaller than the next value, we subtract the current value.
+Otherwise, we add it.
+For example, with:
+MCMXCIV
+We process it like this:
+M → 1000, add it
+C before M → 100 is smaller than 1000, so subtract it
+M → 1000, add it
+X before C → subtract 10
+C → add 100
+I before V → subtract 1
+V → add 5
+So we get:
+1000 - 100 + 1000 - 10 + 100 - 1 + 5 = 1994
+The important idea is that we don't need to specifically check for IV, IX, XL, XC, CD, or CM. Instead, we use one general rule:
+If the current number is smaller than the next number → subtract it.
+Otherwise → add it.
+The value function is simply used to convert each Roman symbol into its numerical value.
+Time: O(n), because we go through the string once.
+Space: O(1), because we only use a few variables and don't create anything based on the size of the input. */
