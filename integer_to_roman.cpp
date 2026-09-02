@@ -84,3 +84,77 @@ public:
         return result;
     }
 };
+
+/*
+Integer to Roman — Approach
+
+The main idea is to always take the largest Roman numeral value that can fit into the current number.
+
+We keep the Roman values in descending order, including the special cases:
+
+1000 → M
+900 → CM
+500 → D
+400 → CD
+100 → C
+90 → XC
+50 → L
+40 → XL
+10 → X
+9 → IX
+5 → V
+4 → IV
+1 → I
+
+Then we go through these values from largest to smallest.
+
+If the current number is large enough to contain a value, we add its Roman symbol to the result and subtract that value from the number.
+
+For example, with 3749:
+
+3749 is at least 1000 → add M, leaving 2749
+
+2749 is at least 1000 → add M, leaving 1749
+
+1749 is at least 1000 → add M, leaving 749
+
+749 is at least 500 → add D, leaving 249
+
+249 is at least 100 → add C, leaving 149
+
+149 is at least 100 → add C, leaving 49
+
+49 is at least 40 → add XL, leaving 9
+
+9 is at least 9 → add IX, leaving 0
+
+Result:
+
+MMMDCCXLIX
+
+The important part is including the special values like 900, 400, 90, 40, 9, and 4.
+
+Without them, the algorithm might try to write 900 as DCCCC, which isn't the correct Roman numeral. By putting 900 → CM in the list, the algorithm automatically chooses the correct form.
+
+The while loop is used because some symbols can be used multiple times.
+
+For example, with 3000:
+
+1000 fits → add M
+1000 fits → add M
+1000 fits → add M
+
+Giving:
+
+MMM
+
+So the overall approach is:
+
+Start with the largest possible Roman value → add its symbol while it fits → subtract it from the number → move down through the values.
+
+Because the values are already ordered from largest to smallest, this naturally produces the correct Roman numeral.
+
+Time: O(1), because there are always only 13 Roman values to check, and the input is limited to 3999.
+
+Space: O(1) extra space, ignoring the output string.
+*/
