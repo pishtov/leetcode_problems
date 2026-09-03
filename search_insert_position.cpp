@@ -35,3 +35,17 @@ public:
         return left;
     }
 };
+
+/* Search Insert Position — Approach
+The approach is to use binary search because the array is already sorted.
+We keep track of the part of the array we are currently searching using two variables:
+left starts at the beginning of the array, and right starts at the end.
+Then, we check the middle element of the current search area.
+If the middle element is smaller than the target, we know that everything before it is also smaller than the target because the array is sorted. So we can ignore that entire left side and move left to the element after the middle.
+If the middle element is greater than or equal to the target, we know that everything after it is also greater than the target. So we can ignore that right side and move right to the element before the middle.
+We keep repeating this until there are no elements left to search.
+At that point, left represents the position where the target should be inserted. This also works when the target already exists in the array, because left will end up at its index.
+So the overall approach is simply:
+Start with the entire array → check the middle → ignore the half that cannot contain the answer → repeat → return left as the insertion position.
+Time: O(log n), because we remove roughly half of the remaining search area after each comparison.
+Space: O(1) extra space, because we only use a few variables and do not create another array. */
